@@ -1,0 +1,424 @@
+<html><head>	
+<style>
+/*Now the CSS*/
+* {margin: 0; padding: 0;}
+
+.tree ul {
+	padding-top: 20px; position: relative;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.tree li {
+	float: left; text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before, .tree li::after{
+	content: '';
+	position: absolute; top: 0; right: 50%;
+	border-top: 1px solid #ccc;
+	width: 50%; height: 20px;
+}
+.tree li::after{
+	right: auto; left: 50%;
+	border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+.tree li:only-child::after, .tree li:only-child::before {
+	display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child{ padding-top: 0;}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.tree li:first-child::before, .tree li:last-child::after{
+	border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before{
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after{
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0; height: 20px;
+}
+
+.tree li a{
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree li a:hover, .tree li a:hover+ul li a {
+	background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+}
+/*Connector styles on hover*/
+.tree li a:hover+ul li::after, 
+.tree li a:hover+ul li::before, 
+.tree li a:hover+ul::before, 
+.tree li a:hover+ul ul::before{
+	border-color:  #94a0b4;
+}
+</style>
+
+<script type="text/javascript">
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'none')
+          e.style.display = 'block';
+       else
+          e.style.display = 'none';
+    }
+</script>
+
+<!--
+<script type="text/javascript">
+function toggle_visibility(id) {
+var e = document.getElementById(id);
+if(e.style.display == 'block')
+e.style.display = 'none';
+else
+e.style.display = 'block';
+}
+</script>
+-->
+
+
+</head><body><table width="200%"><tr><td>
+
+
+<!--
+We will create a family tree using just CSS(3)
+The markup will be simple nested lists
+-->
+<div class="tree">
+<ul>
+
+<li>
+<a href="#">Samuel Horsley<br/>2006</a>
+	<ul>
+<li><a href="#">David Horsley<br/>1975</a>
+<a href="#" onclick="toggle_visibility('foo');">+</a>
+<div id="foo" style="display:none">
+		<ul>
+
+<li>
+<a href="#">Nick Horsley<br/>1949-2023</a>
+<a href="#" onclick="toggle_visibility('horsley_nick_1949');">+</a>
+<div id="horsley_nick_1949" style="display:none">
+	<ul><li><a href="#">Betty Menzies</a>
+	</li>
+	<li><a href="#">William 'Alroy' Horsley<br/>1911-1962</a>
+				<ul><li><a href="#">Dulcie Millen</a>
+				</li>
+				<li><a href="#">John William Horsley<br/>1886-1960</a>
+					<ul><li><a href="#">Minnie Paine<br/>1867-1947</a>
+						<ul><li><a href="#">Ellen Gates</a>
+						</li>
+						<li><a href="#">Henry Pain</a>
+						</li></ul>
+					</li>
+					<li><a href="#">John Horsley<br/>1863-1936</a>
+						<ul><li><a href="#">Mary Thurlow<br/>1828</a>
+						</li>
+						<li><a href="#">Richard Horsley<br/>1819</a>
+						</li></ul>
+					</li></ul>
+				</li></ul>
+			</li></ul></div>
+
+<li>
+		<a href="#">Anne Parr<br/>1956</a>
+<a href="#" onclick="toggle_visibility('parr_anne_1956');">+</a>
+<div id="parr_anne_1956" style="display:none">
+
+<ul>
+
+
+<li>
+<a href="#">Neville Parr<br/>1933-2021</a>
+<a href="#" onclick="toggle_visibility('parr_neville_1933');">+</a>
+<div id="parr_neville_1933" style="display:none">
+<ul>
+
+<li>
+<a href="#">Douglas Gordon Parr</a>
+<a href="#" onclick="toggle_visibility('douglas');">+</a>
+<div id="douglas" style="display:none">
+<ul>
+
+<li>
+<a href="#">John Alexander Parr</a>
+<ul>
+<li><a href="#">Donald Campbell Parr<br/>Rookwood cemetery<br/>Royal Navy Edinburgh</a></li>
+<li><a href="#">Emma McKenzie<br/>Convict</a>
+<ul><li><a href="#">Rebecca Devine<br/>Convict</a></li></ul></li>
+</ul></li>
+
+<li><a href="#">Lillieth Cusselle Summerfield</a>
+<ul>
+<li>
+<a href="#">William Berrie Summerfield</a>
+		<ul>
+		<li><a href="#">John Summerfield<br/>Convict Master Builder<br/>in Nowra</a></li>
+		<li><a href="#">Anne Berrie<br/>Fife Scotland<br/>Bruce has bible register</a></li>
+</ul></li>
+<li><a href="#">Elizabeth Cusselle<br/>Opera Singer<br/>Freedom to City of London</a>
+		<ul>
+		<li><a href="#">John Cusselle</a></li>
+		<li><a href="#">???</a></li>
+		</ul></li>
+</li></ul></li>
+
+</ul></div></li>
+
+<li>
+<a href="#">Frances Mathilda Ashby<br/>1909</a>
+<a href="#" onclick="toggle_visibility('frances_1909');">+</a>
+<div id="frances_1909" style="display:none">
+<ul>
+
+<li>
+<a href="https://www.findagrave.com/memorial/123616296/clara-alice-ashby">Clara Alice Graham Ashby<br/>1892-1952 (w)</a>
+<a href="#" onclick="toggle_visibility('clara_1892');">+</a>
+<div id="clara_1892" style="display:none">
+<ul>
+<li>
+<a href="https://www.findagrave.com/memorial/123634487/william_joseph-graham">William Joseph Graham<br/>1859-1936 (w)</a>
+</li>
+<li>
+<a href="https://www.findagrave.com/memorial/123634429/frances_martha-graham">Frances Martha Stewart Graham<br/>1864-1939 (w)</a>
+<ul>
+<li><a href="https://www.findagrave.com/memorial/218640770/william_henry-stewart">William Henry Stewart<br/>1833-1899 (w)</a>
+<ul>
+<li><a href="https://www.findagrave.com/memorial/188016091/john-stewart">John Stewart<br/>1801-1877 (w)</a></li>
+<li><a href="https://www.findagrave.com/memorial/187936964/lydia-stewart">Lydia Bates Stewart<br/>1806-1867 (w)</a>
+<ul>
+<li><a href="https://www.findagrave.com/memorial/216023679/thomas-bates">Thomas Bates<br/>Unknown-1836 (w)</a></li>
+<li><a href="https://www.findagrave.com/memorial/216023894/ann-bates">Anne Griffin Bates<br/>1784-1864 (w)</a>
+
+<ul>
+<li><a href="https://www.findagrave.com/memorial/158687522/michael-griffin">Michael Griffin<br/>Born Ireland / Died NSW Australia<br/>1750-1833 (w)</a></li>
+<li><a href="https://www.findagrave.com/memorial/30221788/mary-griffin">Mary Amos Griffin<br/>Born England / Died NSW Australia<br />1748-1794 (w)</a>
+</li></ul>
+
+</li></ul>
+</li></ul></li>
+<li><a href="https://www.findagrave.com/memorial/218640771/frances-stewart">Frances Palmer Stewart<br/>1840-1908 (w)</a></li>
+</ul>
+
+
+</li>
+</ul></div></li>
+
+<li>
+<a href="https://www.findagrave.com/memorial/191750091/henry_ernest_john-ashby">Henry Ernest John Ashby<br/>1889-1967 (w)</a>
+<a href="#" onclick="toggle_visibility('henry_1889');">+</a>
+<div id="henry_1889" style="display:none">
+<ul>
+	
+
+<li>
+<a href="#">John Ashby<br/>1849<br/>Field of Mars Cemetery</a>
+<ul>
+<li>
+<a href="#">Joseph Ashby<br/>1810</a>
+</li>
+<li>
+<a href="#">Charlotte Webb<br/>1845-1913</a>
+
+<ul>
+<li>
+<a href="#">James Webb</a>
+</li>
+<li>
+<a href="#">Sophie Bungaree</a>
+
+<ul><li>
+<a href="#">King Bungaree<br/>1775-1830</a>
+<ul><li>
+<a href="#">Father of Bungaree<br/>d.1804</a>
+</li></ul>
+<li><a href="#">Matora (1st wife of Bungaree)</a>
+</li></ul>
+</li>
+
+</ul></li>
+</ul></li>
+<li>
+<a href="https://www.findagrave.com/memorial/218666074/matilda-ashby">Matilda Lees<br/>1847-1900 (w)<br/>buried with Mary Anne</a>
+<ul>
+<li><a href="https://www.findagrave.com/memorial/49763565/james_sutton-lees">James Sutton Lees<br/>1793-1887 (w)</a></li>
+<li><a href="https://www.findagrave.com/memorial/218654783/mary-ann-lees">Mary Anne Lees<br/>1811-1899 (w)<br/>buried with Matilda</a></li>
+</ul>
+</ul></div>
+</li>
+
+
+
+</ul></div></li>
+</ul></div></li>
+
+<li>
+<a href="#">Yvonne Sherley<br/>(1932-2014)</a>
+			<a href="#" onclick="toggle_visibility('sherley_yvonne_1932');">+</a>
+			<div id="sherley_yvonne_1932" style="display:none">
+				<ul><li>
+				<a href="#">Alice May O'Halloran</a>
+					<ul><li>
+					<a href="#">Mary Anne Bowes</a>
+						<ul><li>
+						<a href="#">Margaret Maher</a>
+
+
+							<ul><li>
+							<a href="#" title="Died in child birth with 5th/6th child. Buried in Tipperary.">
+							Marry Anne Ryan</a>	
+							</li></ul>
+						</li>
+						<li>
+						<a href="#">William Bowes</a>
+							<ul><li>
+							<a href="#">Bridget Godfrey</a>
+							</li>
+							<li>
+							<a href="#">Dennis Bowes</a>
+							</li></ul>
+						</li></ul>
+					</li>
+					<li>
+					<a href="#">Henry 'Harry' O'Halloran</a>
+						<ul><li>
+						<a href="#">Eliza Fisher</a>
+						</li>
+						<li>
+						<a href="#">John O'Halloran</a>
+						</li></ul>
+					</li></ul>
+				</li>
+				<li>
+				<a href="#">Thomas Sherley</a>
+					<ul><li>
+					<a href="#">Jane Kelly</a>
+						<ul><li>
+						<a href="#">Charles Kelly (pirate lost at sea?)</a>
+						</li></ul>
+					</li>
+					<li>
+					<a href="#">Joseph Patrick Sherley</a>
+					</li></ul>
+				</li></ul></div>
+
+
+
+
+
+
+</ul></div></li>
+
+</li></ul></div></li>
+
+
+
+<li>
+<a href="#">Tammy Loughrey<br/>1977</a>
+<a href="#" onclick="toggle_visibility('loughrey_tammy_1977');">+</a>
+<div id="loughrey_tammy_1977" style="display:none">
+<ul>
+
+
+
+<li><a href="#">Kevin Loughrey<br/>1951</a>
+<ul>
+
+<li><a href="#">Arthur Bernard Loughrey<br/>1908<br/>4/Oct/1908</a>
+<ul>
+
+<li><a href="#">Bernard Loughrey</a>
+</li>
+
+<li><a href="http://www.johnwion.com/bretag.html">Clara Wilhelmina (nee Bretag) (w)</a>
+<ul>
+<li><a href="#">Johann Carl Wilhelm Bretag</a>
+<li><a href="http://www.johnwion.com/bretag.html">Sophia (nee Kuse) Bretag (w)</a></li>
+</ul></li>
+
+
+
+</ul></li>
+
+<li><a href="#">Beryl Joie Stone<br/>1910</a>
+<ul>
+<li><a href="#">Thomas Erasmus Stone<br/>1869?</a></li>
+<li><a href="#">Emily Servante<br/>1869</a>
+<ul><li><a href="#">???</a></li>
+<li><a href="#">Padley</a></li></ul>
+</li>
+
+
+</ul></li>
+
+
+
+
+</ul>
+
+<li>
+<a href="#">Janice White<br/>1951</a>
+<ul>
+<li><a href="#">Derek John 'Snow' White<br/>1919-2007<br/>10/Feb/1919-24/May/2007</a></li>
+<li><a href="#">Frances Aileen Leggett<br/>1920-2003<br/>17/May/1920-6/May/2003</a></li>
+</ul></li>
+
+
+
+
+
+</li></ul>
+	</li>
+	</div>
+	</ul>
+</li></ul>
+</div>
+</td></tr></table></body></html>
