@@ -1,4 +1,7 @@
-<html><head>	
+<html><head>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 /*Now the CSS*/
 * {margin: 0; padding: 0;}
@@ -124,9 +127,8 @@ e.style.display = 'block';
 </script>
 -->
 
-
-</head><body><table width="200%"><tr><td>
-
+</head>
+<body><table width="100%" style="width: 100%;"><tr><td>
 
 <!--
 We will create a family tree using just CSS(3)
@@ -260,38 +262,43 @@ The markup will be simple nested lists
 	
 
 <li>
-<a href="#">John Ashby<br/>1849<br/>Field of Mars Cemetery</a>
+<a href="https://www.findagrave.com/memorial/123616311/john-ashby">John Ashby<br/>1850-1919 (w)</a>
+<a href="#" onclick="toggle_visibility('john_1850');">+</a>
+<div id="john_1850" style="display:none">
 <ul>
 <li>
-<a href="#">Joseph Ashby<br/>1810</a>
+<a href="https://www.findagrave.com/memorial/146648229/joseph-ashby">Joseph Ashby<br/>1815-1864 (w)</a><br/><a href="https://ninglunbooks.wordpress.com/early-last-century/family-stories-4-a-guringai-family-story-warren-whitfield/">Notes (w)</a>
+<ul><li><a href="#">Joseph Ashby</a></li><li><a href="#">Lydia Hardy</a></li></ul>
 </li>
 <li>
-<a href="#">Charlotte Webb<br/>1845-1913</a>
+<a href="https://www.findagrave.com/memorial/189291798/charlotte-ashby">Charlotte Webb Ashby<br/>1823-1913 (w)</a>
 
 <ul>
 <li>
-<a href="#">James Webb</a>
+<a href="https://www.geni.com/people/James-Webb/6000000036973705919">James Webb<br/>1766-1848 (w)</a>
 </li>
 <li>
-<a href="#">Sophie Bungaree</a>
+<a href="https://www.geni.com/people/Sophy-Webb/6000000036973129428">Sophy Webb<br/>1810-1877 (w)<br/><br/><a href="https://ninglunbooks.wordpress.com/early-last-century/family-stories-4-a-guringai-family-story-warren-whitfield/">Notes w)</a><br/><a href="https://www.wikitree.com/wiki/Unknown-655991">Controversy1 w)</a><br/><a href="https://guringai.org/2025/07/18/tracing-the-bungaree-sophy-charlotte-ashby-fiction-from-fabrication-to-institutional-laundering/">Controversy2 (w)</a>
 
 <ul><li>
-<a href="#">King Bungaree<br/>1775-1830</a>
+<a href="https://ninglunbooks.wordpress.com/early-last-century/family-stories-4-a-guringai-family-story-warren-whitfield/">King Bungaree<br/>1775-1830 (w)</a>
 <ul><li>
 <a href="#">Father of Bungaree<br/>d.1804</a>
 </li></ul>
-<li><a href="#">Matora (1st wife of Bungaree)</a>
+<li><a href="https://www.geni.com/people/Matora-Bungaree/6000000120638870826">Matora (1st wife of Bungaree)<br/>?-1830 (w)</a>
 </li></ul>
 </li>
 
 </ul></li>
-</ul></li>
+</ul></div></li>
 <li>
 <a href="https://www.findagrave.com/memorial/218666074/matilda-ashby">Matilda Lees<br/>1847-1900 (w)<br/>buried with Mary Anne</a>
+<a href="#" onclick="toggle_visibility('matilda_1847');">+</a>
+<div id="matilda_1847" style="display:none">
 <ul>
 <li><a href="https://www.findagrave.com/memorial/49763565/james_sutton-lees">James Sutton Lees<br/>1793-1887 (w)</a></li>
 <li><a href="https://www.findagrave.com/memorial/218654783/mary-ann-lees">Mary Anne Lees<br/>1811-1899 (w)<br/>buried with Matilda</a></li>
-</ul>
+</ul></div>
 </ul></div>
 </li>
 
