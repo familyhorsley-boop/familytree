@@ -14,7 +14,7 @@
 }
 
 .tree li {
-	float: left; text-align: center;
+	float: left; text-align: center; width: max-content;
 	list-style-type: none;
 	position: relative;
 	padding: 20px 5px 0 5px;
@@ -192,7 +192,7 @@ The markup will be simple nested lists
 <li>
 <a href="#">John Alexander Parr</a>
 <ul>
-<li><a href="#">Donald Campbell Parr<br/>Rookwood cemetery<br/>Royal Navy Edinburgh</a></li>
+<li><a href="https://www.findagrave.com/memorial/189371295/donald-campbell-parr">Donald Campbell Parr<br/>Died 1924 (w)<br/>Royal Navy Edinburgh</a></li>
 <li><a href="#">Emma McKenzie<br/>Convict</a>
 <ul><li><a href="#">Rebecca Devine<br/>Convict</a></li></ul></li>
 </ul></li>
@@ -220,38 +220,10 @@ The markup will be simple nested lists
 <div id="frances_1909" style="display:none">
 <ul>
 
-<li>
-<a href="https://www.findagrave.com/memorial/123616296/clara-alice-ashby">Clara Alice Graham Ashby<br/>1892-1952 (w)</a>
-<a href="#" onclick="toggle_visibility('clara_1892');">+</a>
-<div id="clara_1892" style="display:none">
-<ul>
-<li>
-<a href="https://www.findagrave.com/memorial/123634487/william_joseph-graham">William Joseph Graham<br/>1859-1936 (w)</a>
-</li>
-<li>
-<a href="https://www.findagrave.com/memorial/123634429/frances_martha-graham">Frances Martha Stewart Graham<br/>1864-1939 (w)</a>
-<ul>
-<li><a href="https://www.findagrave.com/memorial/218640770/william_henry-stewart">William Henry Stewart<br/>1833-1899 (w)</a>
-<ul>
-<li><a href="https://www.findagrave.com/memorial/188016091/john-stewart">John Stewart<br/>1801-1877 (w)</a></li>
-<li><a href="https://www.findagrave.com/memorial/187936964/lydia-stewart">Lydia Bates Stewart<br/>1806-1867 (w)</a>
-<ul>
-<li><a href="https://www.findagrave.com/memorial/216023679/thomas-bates">Thomas Bates<br/>Unknown-1836 (w)</a></li>
-<li><a href="https://www.findagrave.com/memorial/216023894/ann-bates">Anne Griffin Bates<br/>1784-1864 (w)</a>
-
-<ul>
-<li><a href="https://www.findagrave.com/memorial/158687522/michael-griffin">Michael Griffin<br/>Born Ireland / Died NSW Australia<br/>1750-1833 (w)</a></li>
-<li><a href="https://www.findagrave.com/memorial/30221788/mary-griffin">Mary Amos Griffin<br/>Born England / Died NSW Australia<br />1748-1794 (w)</a>
-</li></ul>
-
-</li></ul>
-</li></ul></li>
-<li><a href="https://www.findagrave.com/memorial/218640771/frances-stewart">Frances Palmer Stewart<br/>1840-1908 (w)</a></li>
-</ul>
 
 
-</li>
-</ul></div></li>
+
+
 
 <li>
 <a href="https://www.findagrave.com/memorial/191750091/henry_ernest_john-ashby">Henry Ernest John Ashby<br/>1889-1967 (w)</a>
@@ -259,7 +231,6 @@ The markup will be simple nested lists
 <div id="henry_1889" style="display:none">
 <ul>
 	
-
 <li>
 <a href="https://www.findagrave.com/memorial/123616311/john-ashby">John Ashby<br/>1850-1919 (w)</a>
 <a href="#" onclick="toggle_visibility('john_1850');">+</a>
@@ -299,12 +270,46 @@ The markup will be simple nested lists
 <li><a href="https://www.findagrave.com/memorial/218654783/mary-ann-lees">Mary Anne Lees<br/>1811-1899 (w)<br/>buried with Matilda</a></li>
 </ul></div>
 </ul></div>
+</li>  <!-- end of Henry Ernest John Ashby -->
+
+
+
+<li>
+<a href="https://www.findagrave.com/memorial/123616296/clara-alice-ashby">Clara Alice Graham<br/>1892-1952 (w)</a>
+<a href="#" onclick="toggle_visibility('clara_1892');">+</a>
+<div id="clara_1892" style="display:none">
+<ul>
+<li>
+<a href="https://www.findagrave.com/memorial/123634487/william_joseph-graham">William Joseph Graham<br/>1859-1936 (w)</a>
 </li>
+<li>
+<a href="https://www.findagrave.com/memorial/123634429/frances_martha-graham">Frances Martha Stewart<br/>1864-1939 (w)</a>
+<ul>
+<li><a href="https://www.findagrave.com/memorial/218640770/william_henry-stewart">William Henry Stewart<br/>1833-1899 (w)</a>
+<ul>
+<li><a href="https://www.findagrave.com/memorial/188016091/john-stewart">John Stewart<br/>1801-1877 (w)</a></li>
+<li><a href="https://www.findagrave.com/memorial/187936964/lydia-stewart">Lydia Bates<br/>1806-1867 (w)</a>
+<ul>
+<li><a href="https://www.findagrave.com/memorial/216023679/thomas-bates">Thomas Bates<br/>Unknown-1836 (w)</a></li>
+<li><a href="https://www.findagrave.com/memorial/216023894/ann-bates">Anne Griffin<br/>1784-1864 (w)</a>
+
+<ul>
+<li><a href="https://www.findagrave.com/memorial/158687522/michael-griffin">Michael Griffin<br/>Born Ireland<br/>Died NSW Australia<br/>1750-1833 (w)</a></li>
+<li><a href="https://www.findagrave.com/memorial/30221788/mary-griffin">Mary Amos<br/>Born England<br/>Died NSW Australia<br />1748-1794 (w)</a>
+</li></ul>
+
+</li></ul>
+</li></ul></li>
+<li><a href="https://www.findagrave.com/memorial/218640771/frances-stewart">Frances Palmer<br/>1840-1908 (w)</a></li>
+</ul>
+</li>
+</ul></div></li>  <!-- end of Clara Alice Graham Ashby -->
 
 
 
-</ul></div></li>
-</ul></div></li>
+
+</ul></div></li> <!-- end of Frances Mathilda Ashby section -->
+</ul></div></li> <!-- end of Neville Parr section -->
 
 <li>
 <a href="#">Yvonne Sherley<br/>(1932-2014)</a>
