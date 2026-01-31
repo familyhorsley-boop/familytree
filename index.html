@@ -134,6 +134,7 @@ e.style.display = 'block';
 We will create a family tree using just CSS(3)
 The markup will be simple nested lists
 -->
+
 <div class="tree">
 <ul>
 
@@ -465,13 +466,15 @@ The markup will be simple nested lists
 <a href="https://www.findagrave.com/memorial/123634429/frances_martha-graham">Frances Martha Stewart<br/>1864-1939 (w)</a>
 <ul>
 <li><a href="https://samilytree.blogspot.com/2026/01/stewart.html">William Henry Stewart<br/>1833-1899 (b)</a>
-<ul>
+<a href="#" onclick="toggle_visibility('william_1833');">+</a>
+<div id="william_1833" style="display:none">
+<ul>	
 <li><a href="https://samilytree.blogspot.com/2026/01/stewart-john.html">John Stewart<br/>1801-1877 (b)</a></li>
 <li><a href="https://samilytree.blogspot.com/2026/01/stewart-john.html">Lydia Bates<br/>1806-1867 (b)</a>
 <ul>
-<li><a href="https://samilytree.blogspot.com/2026/01/bates-thomas.html">Thomas Bates<br/>1773-1836 (b)</a>
-<a href="#" onclick="toggle_visibility('frances_1840');">+</a>
-<div id="frances_1840" style="display:none">
+<li><a href="https://samilytree.blogspot.com/2026/01/bates-thomas.html">Thomas Bates<br/>1773-1836 (b)<br/><strong>First settler, 2nd Fleet</strong></a>
+<a href="#" onclick="toggle_visibility('thomas_1773');">+</a>
+<div id="thomas_1773" style="display:none">
 <ul>
 <li><a href="https://www.wikitree.com/wiki/Bates-21373">William Bates<br/>1748-? (w)<br/>England.</a>
 <ul>
@@ -481,17 +484,18 @@ The markup will be simple nested lists
 </li>
 </ul></div><!-- End of Thomas Bates -->
 </li>
-<li><a href="https://samilytree.blogspot.com/2026/01/bates-thomas.html">Anne Griffin<br/>1784-1864 (b)</a>
+<li><a href="https://samilytree.blogspot.com/2026/01/bates-thomas.html">Anne Griffin<br/>1784-1864 (b)<br/><strong>First settler, Third fleet</strong></a>
 <a href="#" onclick="toggle_visibility('anne_1784');">+</a>
 <div id="anne_1784" style="display:none">
 
 <ul>
-<li><a href="https://samilytree.blogspot.com/2026/01/griffin-michael.html">Michael Griffin<br/>1750-1833 (b)<br/>Born Ireland<br/>Died NSW Australia</a></li>
-<li><a href="https://samilytree.blogspot.com/2026/01/griffin-michael.html">Mary Amos<br/>Born England<br/>Died NSW Australia<br />1748-1794 (b)</a>
+<li><a href="https://samilytree.blogspot.com/2026/01/griffin-michael.html">Michael Griffin<br/>1750-1833 (b)<br/><strong>First settler, Third fleet</strong>.</a></li>
+<li><a href="https://samilytree.blogspot.com/2026/01/griffin-michael.html">Mary Amos<br/>1748-1794 (b)<br/><strong>First settler, Third fleet</strong>.</a>
 </li></ul></div> <!-- End of Anne Griffin -->
 
 </li></ul>
-</li></ul></li>
+</li></ul></div> <!-- End of William Stewart -->
+</li>
 
 <li><a href="https://samilytree.blogspot.com/2026/01/stewart.html">Frances Palmer<br/>1840-1908 (b)</a>
 <a href="#" onclick="toggle_visibility('frances_1840');">+</a>
@@ -829,11 +833,11 @@ The markup will be simple nested lists
 </li>
 
 
-
-
 </li></ul></li>
 </div> <!-- End of Tammy Loughrey -->
 </ul>
 </li></ul>
 </div>
-</td></tr></table></body></html>
+</td></tr></table>
+<p><br/>KEY:<br/>(b) Blog<br/>(w) Website<br/>(p) Portal<br/>(i) Information on hover<br/>(...) More records found.</p>
+</body></html>
